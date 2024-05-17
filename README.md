@@ -1,8 +1,9 @@
-PaymentApi
+Finance API
 
-PaymentAPI is a RESTful API developed for credit card payments, intended to be integrated into a financial management system module adapted for microenterprises.
+Welcome to the API Personal Finance documentation! This API provides endpoints to manage personal finances, including categories, transactions, and more.
 
 - Installation
+
 Start the Docker containers:
 ```sh
 docker-compose up -d
@@ -47,7 +48,7 @@ http://localhost:8080/rest/documentation/
 ```sh
 
 {
-"email": "paymentapi.user@gmail.com", 
+"email": "financeapi.user@gmail.com", 
 "password": 1234567
 }
 
