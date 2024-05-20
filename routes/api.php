@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PaymentController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +22,5 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('me', [AuthController::class, 'me']);
 });
 
-// Payment
-    Route::get('payments', [PaymentController::class, 'all']);
-    Route::get('payments/{id}', [PaymentController::class, 'find']);
-    Route::delete('payments/{id}', [PaymentController::class, 'destroy']);
-    Route::patch('payments/{id}', [PaymentController::class, 'confirmPayment']);
-    Route::post('payments', [PaymentController::class, 'create']);
+// Dashboard
+    Route::get('usercontexto', [DashboardController::class, 'getUserContext']);

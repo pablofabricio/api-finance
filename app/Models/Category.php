@@ -14,5 +14,11 @@ class Category extends Model
     protected $fillable = [
         'name',
         'percent',
+        'user_id',
     ];
+
+    public function values()
+    {
+        return $this->hasMany(Value::class);
+    }
 }
