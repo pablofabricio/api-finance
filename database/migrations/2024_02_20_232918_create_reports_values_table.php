@@ -10,9 +10,10 @@ return new class extends Migration
     {
         Schema::create('reports_values', function (Blueprint $table) {
             $table->id(); 
-            $table->unsignedBigInteger('value_id');
+            $table->enum('status', ['active', 'paid', 'late'])->default('active');
+            $table->integer('value_id');
             $table->foreign('value_id')->references('id')->on('values')->onDelete('cascade');
-            $table->unsignedBigInteger('report_id');
+            $table->integer('report_id');
             $table->foreign('report_id')->references('id')->on('reports')->onDelete('cascade');
             $table->timestamps();
         });
