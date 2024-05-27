@@ -12,6 +12,8 @@ return new class extends Migration
             $table->id();
             $table->integer('year');
             $table->integer('month');
+            $table->integer('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

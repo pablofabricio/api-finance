@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('recurrence')->nullable();
             $table->integer('installments')->nullable();
             $table->enum('status', ['active', 'paid'])->default('active');
+            $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->integer('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

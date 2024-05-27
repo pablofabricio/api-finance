@@ -15,4 +15,14 @@ class Report extends Model
         'month',
         'year',
     ];
+
+    public function categories()
+    {
+        $this->belongsToMany(Category::class)->withPivot('created_by');
+    }
+
+    public function values()
+    {
+        $this->belongsToMany(Value::class)->withPivot('status', 'created_by');
+    }
 }
