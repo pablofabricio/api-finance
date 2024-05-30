@@ -8,19 +8,16 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('subcategories', function (Blueprint $table) {
             $table->id();
-            $table->integer('year');
+            $table->string('name');
             $table->string('description')->nullable();
-            $table->decimal('budget', 10, 2);  
-            $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('subcategories');
     }
 };

@@ -23,4 +23,4 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 // Dashboard
-    Route::get('usercontexto', [DashboardController::class, 'getUserContext']);
+    Route::get('dashboard', [DashboardController::class, 'index']);

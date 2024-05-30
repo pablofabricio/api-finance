@@ -12,8 +12,10 @@ class Report extends Model
     protected $table = 'reports';
 
     protected $fillable = [
-        'month',
         'year',
+        'description',
+        'user_id',
+        'budget',
     ];
 
     public function categories()

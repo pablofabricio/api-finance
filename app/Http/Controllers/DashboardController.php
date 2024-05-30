@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Values\ValuesService;
+use App\Http\Resources\Dashboard\DashboardResource;
+use App\Services\Dashboard\DashboardService;
 use Illuminate\Http\Request;
 
 class DashboardController extends BaseController
 {
-    public function __construct(ValuesService $service) 
+    public function __construct(DashboardService $service) 
     {
         $this->service = $service;
     }
 
-    public function getUserContext(Request $request)
+    public function index(Request $request): DashboardResource
     {
-        return $this->service->getUserContext($request);
+        return new DashboardResource($this->service->index($request));
     }
 }

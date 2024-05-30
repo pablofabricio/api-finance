@@ -13,12 +13,29 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'description',
         'percent',
         'user_id',
     ];
 
+    protected $appends = [
+        'years'
+    ];
+
+    public function getYearsAttribute()
+    {
+        $reportIds = $this->reports()->pluck('report_id')->toArray();
+
+        return Report::whereIn('id', $reportIds)->pluck('year')->toArray();
+    }
+
     public function values()
     {
         return $this->hasMany(Value::class);
+    }
+
+    public function reports()
+    {
+        return $this->hasMany(ReportCategory::class);
     }
 }

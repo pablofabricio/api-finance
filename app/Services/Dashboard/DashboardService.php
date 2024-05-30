@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Values;
+namespace App\Services\Dashboard;
 
 use App\Repositories\UsersRepository;
 use App\Services\BaseService;
@@ -12,8 +12,10 @@ class DashboardService extends BaseService
         private UsersRepository $usersRepository
     ) {}
 
-    public function getUserContext(Request $request)
+    public function index(Request $request)
     {
-        return $this->usersRepository->getCategoriesValuesByUser($request->user()->id);
+        $user = $this->usersRepository->getDashboard($request->user()->id);
+
+        return $user;
     }
 }

@@ -12,8 +12,17 @@ class UsersRepository extends BaseRepository
         return User::class;
     }
 
-    public function getCategoriesValuesByUser(int $userId)
+    public function getDashboard(int $userId)
     {
-        return $this->model->with("categories.values")->where("id", $userId);
+        return $this->model
+            ->with([
+                "reports" => function($query) {
+                    $query->orderBy('year', 'desc'); 
+                },
+                "categories.values",
+            ])
+            ->where('id', $userId)
+            ->get()
+            ->first();
     }
 }

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('payment_methods_id');
-            $table->foreign('payment_methods')->references('id')->on('payment_methods_id')->onDelete('cascade');
+            $table->foreign('payment_methods_id')->references('id')->on('payment_methods')->onDelete('cascade');
             $table->timestamps();
         });
     }
