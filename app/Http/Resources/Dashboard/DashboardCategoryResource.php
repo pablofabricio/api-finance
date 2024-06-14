@@ -20,21 +20,7 @@ class DashboardCategoryResource extends JsonResource
             "description" => $this->description,
             "percent" => $this->percent,
             "years" => $this->years,
-            "values" => [
-                "id" => $this->category_id,
-                "name" => $this->category_id,
-                "value" => $this->category_id,
-                "start_date" => $this->category_id,
-                "end_date" => $this->category_id,
-                "due_date" => $this->category_id,
-                "due_day" => $this->category_id,
-                "installments" => $this->category_id,
-                "recurrence" => $this->category_id,
-                "status" => $this->category_id,
-                "payment_method" => $this->category_id,
-                "category_id" => $this->category_id,
-                "subcategory_id" => $this->subcategory_id,
-            ]
+            "values" => DashboardCategoryValueResource::collection($this->values),
         ];
     }
 }

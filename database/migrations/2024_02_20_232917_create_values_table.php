@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('due_day')->nullable();
             $table->boolean('recurrence')->nullable();
             $table->integer('installments')->nullable();
-            $table->enum('status', ['active', 'paid'])->default('active');
+            $table->enum('status', ['active', 'paid', 'inactive'])->default('active');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->integer('category_id');
