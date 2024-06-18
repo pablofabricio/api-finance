@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class BaseService implements BaseServiceInterface
 {
-    protected $repository;
+    public function __construct(protected $repository) {}
 
     public function all()
     {
@@ -25,11 +25,15 @@ class BaseService implements BaseServiceInterface
 
     public function create(Request $request)
     {
-        $this->repository->create($request->all());
+        $request->validate($this->repository->model()->getRules());
+
+        return $this->repository->create($request->all());
     }
     
     public function update(Request $request)
     {
-        $this->repository->update($request->all());
+        $request->validate($this->repository->model()->getRules());
+        
+        return $this->repository->update($request->all());
     }
 }

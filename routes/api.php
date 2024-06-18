@@ -24,3 +24,10 @@ Route::group(['prefix' => 'auth'], function () {
 
 // Dashboard
     Route::get('dashboard', [DashboardController::class, 'index']);
+    
+// Values
+    Route::get('values', [DashboardController::class, 'all']);
+    Route::get('values/{id}', [DashboardController::class, 'find']);
+    Route::put('values/{id}', [DashboardController::class, 'update']);
+    Route::post('values', [DashboardController::class, 'create']);
+    Route::delete('values', [DashboardController::class, 'destroy']);

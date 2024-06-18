@@ -35,13 +35,13 @@ class BaseController implements BaseControllerInterface
     {
         $resource = $this->service->create($request);
 
-        return new $this->resource($resource, 201);
+        return new $this->resource($resource, Response::HTTP_CREATED);
     }
 
     public function update(Request $request)
     {
         $resource = $this->service->create($request);
 
-        return new $this->resource($resource, 201);
+        return new $this->resource($resource, Response::HTTP_OK);
     }
 }
