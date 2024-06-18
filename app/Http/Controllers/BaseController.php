@@ -3,39 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class BaseController implements BaseControllerInterface
 {
-    protected $service;
+    public function __construct(
+        protected $service, 
+        protected $resource
+    ) 
+    {
+    }
 
     public function all()
     {
-        return $this->service->all();
+        return $this->resource::colletion($this->service->all());
     }
 
     public function find(string $id)
     {
-        return $this->service->find($id);
+        return new $this->resource($this->service->find($id));
     }
     
     public function destroy(string $id)
     {
         $this->service->destroy($id);
 
-        return response()->json(null, 204);
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
     public function create(Request $request)
     {
-        $resource = $this->service->create($request->all());
+        $resource = $this->service->create($request);
 
-        return response()->json($resource, 201);
+        return new $this->resource($resource, 201);
     }
 
     public function update(Request $request)
     {
-        $resource = $this->service->create($request->all());
+        $resource = $this->service->create($request);
 
-        return response()->json($resource, 201);
+        return new $this->resource($resource, 201);
     }
 }

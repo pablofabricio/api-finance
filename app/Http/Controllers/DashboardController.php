@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 
 class DashboardController extends BaseController
 {
-    public function __construct(DashboardService $service) 
+    public function __construct(
+        DashboardService $service
+    ) 
     {
-        $this->service = $service;
+        parent::__construct($service, DashboardResource::class);  
     }
 
     public function index(Request $request): DashboardResource
     {
-        return new DashboardResource($this->service->index($request));
+        return new  $this->resource($this->service->index($request));
     }
 }

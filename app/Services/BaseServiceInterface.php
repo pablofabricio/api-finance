@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use Illuminate\Http\Request;
+
 interface BaseServiceInterface
 {
     public function all();
@@ -9,6 +11,8 @@ interface BaseServiceInterface
     public function find(int $id);
 
     public function destroy(string $id);
-
-    public function create(array $data);
+    
+    public function create(Request $request);
+    
+    public function update(Request $request);
 }

@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use Illuminate\Http\Request;
+
 class BaseService implements BaseServiceInterface
 {
     protected $repository;
@@ -21,8 +23,13 @@ class BaseService implements BaseServiceInterface
         $this->repository->delete($id);
     }
 
-    public function create(array $data)
+    public function create(Request $request)
     {
-        $this->repository->create($data);
+        $this->repository->create($request->all());
+    }
+    
+    public function update(Request $request)
+    {
+        $this->repository->update($request->all());
     }
 }

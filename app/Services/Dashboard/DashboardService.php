@@ -14,8 +14,6 @@ class DashboardService extends BaseService
 
     public function index(Request $request)
     {
-        $user = $this->usersRepository->getDashboard($request->user()->id);
-
-        return $user;
+        return $this->usersRepository->getDashboard($request->user()->id);
     }
 }
