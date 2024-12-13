@@ -16,7 +16,8 @@ class BaseController implements BaseControllerInterface
 
     public function all()
     {
-        return $this->resource::colletion($this->service->all());
+        
+        return $this->resource::collection($this->service->all());
     }
 
     public function find(string $id)

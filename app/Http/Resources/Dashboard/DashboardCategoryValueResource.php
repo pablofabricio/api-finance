@@ -17,7 +17,7 @@ class DashboardCategoryValueResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->name,
-            "amount" => $this->amount,
+            "amount" => (float) $this->amount,
             "start_date" => $this->start_date,
             "end_date" => $this->end_date,
             "due_date" => $this->due_date,

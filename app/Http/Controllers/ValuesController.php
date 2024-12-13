@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Dashboard\ValueResource;
+use App\Http\Resources\Values\ValueResource;
 use App\Services\Values\ValuesService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -18,6 +18,6 @@ class ValuesController extends BaseController
     {
         $this->service->create($request); 
         
-        return response()->json(null, Response::HTTP_CREATED);
+        return response(null, Response::HTTP_CREATED);
     }
 }

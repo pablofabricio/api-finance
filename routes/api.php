@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ValuesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +22,10 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::post('me', [AuthController::class, 'me']);
 });
-
-// Dashboard
     Route::get('dashboard', [DashboardController::class, 'index']);
     
-// Values
-    Route::get('values', [DashboardController::class, 'all']);
-    Route::get('values/{id}', [DashboardController::class, 'find']);
-    Route::put('values/{id}', [DashboardController::class, 'update']);
-    Route::post('values', [DashboardController::class, 'create']);
-    Route::delete('values', [DashboardController::class, 'destroy']);
+    Route::get('values', [ValuesController::class, 'all']);
+    Route::get('values/{id}', [ValuesController::class, 'find']);
+    Route::put('values/{id}', [ValuesController::class, 'update']);
+    Route::post('values', [ValuesController::class, 'create']);
+    Route::delete('values', [ValuesController::class, 'destroy']);

@@ -11,11 +11,9 @@ return new class extends Migration
         Schema::create('values', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
             $table->decimal('amount', 10, 2);            
             $table->date('due_date')->nullable();
-            $table->integer('due_day')->nullable();
-            $table->boolean('recurrence')->nullable();
+            $table->boolean('recurrence');
             $table->integer('installments')->nullable();
             $table->enum('status', ['active', 'paid', 'inactive'])->default('active');
             $table->date('start_date')->nullable();

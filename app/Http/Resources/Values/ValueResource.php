@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Dashboard;
+namespace App\Http\Resources\Values;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,14 +19,12 @@ class ValueResource extends JsonResource
             "name" => $this->name,
             "amount" => $this->amount,
             "start_date" => $this->start_date,
-            "end_date" => $this->end_date,
+            "end_date" => $this->start_date,
             "due_date" => $this->due_date,
-            "due_day" => $this->due_day,
-            "installments" => $this->installments,
             "recurrence" => $this->recurrence,
+            "installments" => $this->installments,
             "status" => $this->status,
             "payment_method" => $this->payment_method,
-            "subcategory_id" => $this->subcategory_id,
         ];
     }
 }

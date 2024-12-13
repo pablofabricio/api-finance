@@ -17,7 +17,7 @@ class DashboardReportResource extends JsonResource
         return [		
             "year" => $this->year,
             "description" => $this->description,
-            "budget" => $this->budget
+            "budget" => (float) $this->budget
         ];
     }
 }
